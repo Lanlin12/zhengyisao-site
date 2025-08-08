@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>郑一嫂 · 粤海女侠</title>
+<meta name="description" content="郑一嫂（1775-1844），清嘉庆年间著名女海盗。简约动漫风介绍页面。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#fff9fb;
+  --card:#ffffff;
+  --ink:#2a2a2a;
+  --muted:#667085;
+  --brand:#5aa7ff;          /* 糖果蓝 */
+  --brand-2:#ff8fb1;        /* 糖果粉 */
+  --ring:#e8f1ff;
+  --shadow:0 8px 24px rgba(0,0,0,.08);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:"Nunito", system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC","Noto Sans CJK SC",sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 600px at -10% -10%, #fff0f6 20%, transparent 60%),
+    radial-gradient(900px 500px at 110% 0%, #eff6ff 20%, transparent 60%),
+    var(--bg);
+}
+
+/* 顶部导航 */
+.nav{
+  position:sticky; top:0; z-index:9;
+  backdrop-filter:saturate(1.1) blur(8px);
+  background:rgba(255,255,255,.65);
+  border-bottom:1px solid #f0f2f5;
+}
+.nav__inner{
+  max-width:1040px; margin:auto; display:flex; align-items:center; gap:14px;
+  padding:12px 16px;
+}
+.brand{
+  font-family:"Baloo 2", cursive; font-weight:700; font-size:20px;
+  display:flex; align-items:center; gap:8px;
+}
+.brand .badge{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:28px; border-radius:50%;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  color:#fff; font-size:16px; box-shadow:var(--shadow);
+}
+.nav a{
+  text-decoration:none; color:var(--muted); font-weight:700; font-size:14px;
+  padding:8px 10px; border-radius:10px;
+}
+.nav a:hover{ background:#f3f6ff; color:#1f2937 }
+
+/* 头图 */
+.hero{
+  max-width:1040px; margin:22px auto 16px; padding:16px;
+}
+.hero__wrap{
+  background:linear-gradient(135deg,#f8fbff, #fff0f5);
+  border-radius:calc(var(--radius) + 10px); overflow:hidden; position:relative;
+  box-shadow:var(--shadow);
+  display:grid; grid-template-columns:1.1fr .9fr; gap:0;
+}
+.hero__txt{ padding:36px 36px 24px }
+.hero h1{
+  font-family:"Baloo 2", cursive;
+  letter-spacing:.5px; line-height:1.15; margin:.2em 0 .4em;
+  font-size:42px;
+}
+.hero p{ color:#475569; margin:0 0 18px; font-size:16px }
+.hero__chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px }
+.chip{
+  font-size:12px; padding:6px 10px; border-radius:999px; background:#ffffff; border:1px solid #eef2ff; box-shadow:0 2px 8px rgba(0,0,0,.04)
+}
+.hero__img{
+  position:relative; min-height:280px; background:
+    radial-gradient(500px 240px at 70% 10%, rgba(255,255,255,.6), transparent),
+    linear-gradient(180deg, #eaf4ff 0%, #fff 40%);
+  display:flex; align-items:flex-end; justify-content:center; padding:16px;
+}
+.hero__img img{
+  width:min(460px, 92%); height:auto; border-radius:16px;
+  box-shadow:0 12px 30px rgba(90,167,255,.25);
+  object-fit:cover;
+}
+
+/* 内容区块 */
+.section{ max-width:1040px; margin:8px auto; padding:8px 16px }
+.grid{
+  display:grid; gap:16px;
+  grid-template-columns:repeat(12,1fr);
+}
+.card{
+  grid-column:span 12;
+  background:var(--card); border:1px solid #f1f5f9; border-radius:var(--radius);
+  box-shadow:var(--shadow); padding:20px;
+}
+.card h2{ margin:4px 0 8px; font-size:22px; font-weight:800 }
+.card p{ color:#475569; line-height:1.8; margin:10px 0 }
+.card ul{ margin:8px 0 0 0; padding-left:18px; color:#475569; line-height:1.9 }
+.card li{ margin:2px 0 }
+.card .note{ font-size:13px; color:#6b7280 }
+
+.card--accent{
+  border:1px dashed #c7e1ff;
+  background:linear-gradient(180deg,#f7fbff, #ffffff 40%);
+}
+
+/* 年表时间线 */
+.timeline{ position:relative; margin:6px 0 0 0; padding-left:14px }
+.timeline::before{
+  content:""; position:absolute; left:4px; top:0; bottom:0; width:2px; background:#e6efff;
+}
+.tl-item{ position:relative; margin:0 0 16px 0 }
+.tl-item::before{
+  content:""; position:absolute; left:-2px; top:.35em; width:10px; height:10px; border-radius:50%;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow:0 2px 8px rgba(0,0,0,.12)
+}
+.tl-year{ font-weight:800; color:#334155 }
+.tl-text{ color:#475569 }
+
+/* 画廊 */
+.gallery{
+  display:grid; gap:12px;
+  grid-template-columns:repeat(2,1fr);
+}
+.gallery figure{
+  margin:0; background:#fff; border-radius:14px; border:1px solid #eef2f7; overflow:hidden; box-shadow:var(--shadow)
+}
+.gallery img{ width:100%; height:240px; object-fit:cover; display:block }
+.gallery figcaption{ padding:8px 10px; font-size:13px; color:#6b7280 }
+
+/* 页脚 */
+.footer{ text-align:center; color:#94a3b8; font-size:13px; padding:26px 0 40px }
+
+/* 响应式 */
+@media (max-width:900px){
+  .hero__wrap{ grid-template-columns:1fr }
+  .hero h1{ font-size:34px }
+  .gallery{ grid-template-columns:1fr }
+}
+@media (min-width:760px){
+  .span-6{ grid-column:span 6 }
+  .span-4{ grid-column:span 4 }
+  .span-8{ grid-column:span 8 }
+}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 14px; border-radius:12px; border:1px solid #e6edff;
+  text-decoration:none; color:#1f2937; background:#fff; box-shadow:var(--shadow); font-weight:700
+}
+.btn:hover{ transform:translateY(-1px); transition:.2s; }
+</style>
+</head>
+
+<body>
+  <!-- 顶部导航 -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <div class="brand">
+        <span class="badge">⚓</span> 粤海女侠 · 郑一嫂
+      </div>
+      <div style="flex:1"></div>
+      <a href="#intro">简介</a>
+      <a href="#leader">成为首领</a>
+      <a href="#wars">冲突与战绩</a>
+      <a href="#amnesty">接受招安</a>
+      <a href="#late">晚年</a>
+      <a href="#gallery">图集</a>
+    </div>
+  </nav>
+
+  <!-- 头图 -->
+  <header class="hero" id="intro">
+    <div class="hero__wrap">
+      <div class="hero__txt">
+        <div class="chip">1775 — 1844</div>
+        <h1>郑一嫂（石阳）</h1>
+        <p>
+          清嘉庆年间最具传奇色彩的女海盗首领之一。自青楼女子到统御“红旗帮”，
+          她以缜密的章法、铁血的纪律与灵活的谋略，在珠江口与南海一带掀起惊涛骇浪。
+        </p>
+        <div class="hero__chips">
+          <span class="chip">红旗帮</span>
+          <span class="chip">粤洋海盗联盟</span>
+          <span class="chip">张保仔</span>
+          <span class="chip">嘉庆年间</span>
+        </div>
+        <div style="margin-top:16px">
+          <a class="btn" href="#timeline">📜 年表一览</a>
+        </div>
+      </div>
+      <div class="hero__img">
+        <!-- 头图：把 src 换成你的图路径 -->
+        <img src="images/pirate-hero.jpg" alt="郑一嫂主题插画">
+      </div>
+    </div>
+  </header>
+
+  <!-- 内容块 -->
+  <main class="section">
+    <div class="grid">
+      <article class="card span-8 card--accent">
+        <h2>早年经历</h2>
+        <p>
+          郑一嫂，原名石阳，乳名“香菇”，广东新会人。早年为青楼卖身女子，后嫁红旗帮首领郑一，
+          随其出海劫掠，凭能力树威望。嘉庆十年（1805）七月，她协助郑一整合七支海盗势力，
+          签订《广东海上武装麦有金等公立约单》，组建“粤洋海盗联盟”，开始联合作战。
+        </p>
+        <p class="note">七支势力：红旗、黄旗、蓝旗、黑旗、白旗、青旗及郑流唐部。</p>
+      </article>
+
+      <aside class="card span-4">
+        <h2>关键词</h2>
+        <ul>
+          <li>珠江口海上交通控制</li>
+          <li>严苛海盗军纪与后方民心</li>
+          <li>与清军、外商周旋</li>
+          <li>最终接受招安与身份转变</li>
+        </ul>
+      </aside>
+
+      <article class="card span-12" id="leader">
+        <h2>成为首领</h2>
+        <p>
+          嘉庆十二年（1807）十月郑一身故后，她得郑保养、郑安邦支持，并拉拢郑一义子张保仔，
+          继任红旗帮首领。她上任即立铁规：禁擅权、违命、私藏赃物、私逃上岸、辱妇、通奸等；
+          严令不扰沿海百姓，受助者数倍回报。她广纳头目（萧稽兰、萧步鳌、梁皮保等），
+          战船扩至三四百艘，部众逾一万六千人，并以珠江口为主阵地，控制广州对外航道。
+        </p>
+      </article>
+
+      <article class="card span-12" id="wars">
+        <h2>与清军及外商的冲突</h2>
+        <ul>
+          <li><strong>1808.7.21 击败清军：</strong>总兵林国良率25艘清剿，被张保仔设伏击毙。次月又败清军参将林发，获6艘船。</li>
+          <li><strong>1809.2 “米艇”之战：</strong>提督孙全谋率百余米艇出海清剿，被分割围攻弃船而逃，红旗帮大捷，收缴米艇14艘。</li>
+          <li><strong>1808.8 劫掠外商：</strong>诈诱英国籍“鹏发”号商船，上船夺取。</li>
+          <li><strong>1809.6 再败清军：</strong>许廷桂率60余艘围剿，遇风雨松懈，红旗帮二百艘突袭，清军大败，获战船25艘。</li>
+        </ul>
+      </article>
+
+      <article class="card span-6" id="amnesty">
+        <h2>接受招安</h2>
+        <p>
+          嘉庆十四年（1809）起，两广总督百龄采取封港断供、保甲/澳甲制等策略，联盟陷困。
+          其后红旗帮与中外联军周旋失利，张保仔被围，黑旗郭婆带先投降。郑一嫂见势不利表明归降意愿。
+          嘉庆十五年（1809/1810）四月，红旗帮正式投降：张保仔授千总，郑一嫂准与张保仔成婚，封诰命夫人。
+        </p>
+      </article>
+
+      <article class="card span-6" id="late">
+        <h2>晚年生活</h2>
+        <p>
+          1810年十一月随张保仔至闽安镇，三年后生子郑玉麟。张保仔卒后归居广州。
+          道光二十年（1840）因诬告商人被林则徐奏夺诰封。鸦片战争中，她仍为抗英出谋。
+          道光二十四年（1844）卒，享年六十九。
+        </p>
+      </article>
+
+      <!-- 年表 -->
+      <article class="card span-12" id="timeline">
+        <h2>年表</h2>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-year">1775</div> <div class="tl-text">出生于广东新会。</div></div>
+          <div class="tl-item"><div class="tl-year">1805</div> <div class="tl-text">协助整合七帮，成粤洋海盗联盟。</div></div>
+          <div class="tl-item"><div class="tl-year">1807</div> <div class="tl-text">郑一殁；郑一嫂继任红旗帮首领。</div></div>
+          <div class="tl-item"><div class="tl-year">1808–1809</div> <div class="tl-text">多次击败清军与劫掠外商，势力极盛。</div></div>
+          <div class="tl-item"><div class="tl-year">1810</div> <div class="tl-text">正式投降并受封，与张保仔成婚。</div></div>
+          <div class="tl-item"><div class="tl-year">1813</div> <div class="tl-text">生子郑玉麟。</div></div>
+          <div class="tl-item"><div class="tl-year">1840</div> <div class="tl-text">诰封被夺；仍协助林则徐抗英。</div></div>
+          <div class="tl-item"><div class="tl-year">1844</div> <div class="tl-text">广州卒，享年69。</div></div>
+        </div>
+      </article>
+
+      <!-- 图集：把 src 换成你的图片 -->
+      <article class="card span-12" id="gallery">
+        <h2>图集（可爱动漫风参考）</h2>
+        <div class="gallery">
+          <figure>
+            <img src="images/pirate-01.jpg" alt="海盗女孩Q版站在甲板">
+            <figcaption>Q版甲板 · 气场拉满</figcaption>
+          </figure>
+          <figure>
+            <img src="images/pirate-02.jpg" alt="海盗少女拿刀与望远镜">
+            <figcaption>刀与望远镜 · 标志造型</figcaption>
+          </figure>
+          <figure>
+            <img src="images/pirate-03.jpg" alt="毛毡纸雕风格插画">
+            <figcaption>纸雕/毛毡质感 · 纹理可爱</figcaption>
+          </figure>
+          <figure>
+            <img src="images/pirate-04.jpg" alt="复古插画风海盗女">
+            <figcaption>复古漫画线条 · 英姿勃发</figcaption>
+          </figure>
+        </div>
+        <p class="note" style="margin-top:10px">
+          小提示：图片尺寸建议 1200×800 左右，JPG/PNG 均可；文件名用英文字母更稳。
+        </p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    © 2025 粤海女侠 · 郑一嫂 — 纯静态网页（可离线打开）
+  </footer>
+
+<script>
+  // 平滑滚动（可爱又贴心）
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(el){
+        e.preventDefault();
+        window.scrollTo({top: el.getBoundingClientRect().top + window.scrollY - 70, behavior:"smooth"});
+      }
+    })
+  });
+</script>
+</body>
+</html>
